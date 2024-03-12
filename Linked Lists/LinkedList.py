@@ -66,10 +66,15 @@ class Linkedlist:
 
     def delete_from_end(self):
         current_node = self.head
-        while current_node.next.next is not None:
-            current_node = current_node.next
-        if current_node.next.next is None:
-            current_node.next = None
+        if current_node is None:
+            print("Empty List")
+        elif current_node.next is None:
+            self.head = None
+        else:
+            while current_node.next.next is not None:
+                current_node = current_node.next
+            if current_node.next.next is None:
+                current_node.next = None
 
     def search_and_delete(self,value):
         current_node = self.head
@@ -100,10 +105,13 @@ class Linkedlist:
     def length(self):
         count = 1
         current_node = self.head
-        while current_node.next is not None:
-            count = count+1
-            current_node = current_node.next
-        print("Length of Linked list is : ", count)
+        if current_node is None:
+            print("Empty List")
+        else:
+            while current_node.next is not None:
+                count = count+1
+                current_node = current_node.next
+            print("Length of Linked list is : ", count)
 
     def print_list(self):
         current_node = self.head
@@ -135,4 +143,3 @@ x.print_list()
 x.search_and_delete(4)
 x.print_list()
 x.length()
-
